@@ -11,3 +11,12 @@ sudo nmcli con modify hot1 wifi-sec.key-mgmt wpa-psk
 sudo nmcli con modify hot1 wifi-sec.psk Password123
 sudo nmcli con up hot1
 
+conecting internal usb port to computer
+
+3 buttons 3 closest to usb port
+1 short: power off
+2 short: ?
+3 short: switch photo
+1 long: 
+2 long:
+3 long:
