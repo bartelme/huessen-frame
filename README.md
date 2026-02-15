@@ -15,8 +15,10 @@ conecting internal usb port to computer
 
 3 buttons 3 closest to usb port
 1 short: power off
-2 short: ?
+2 short: NO-OP
 3 short: switch photo
-1 long: 
-2 long:
-3 long:
+1 long: reset wifi(only restarts wifi)
+2 long: deinit (will erase wifi config)
+3 long: White test
+
+App needed for bluetooth connection to initialize wifi
