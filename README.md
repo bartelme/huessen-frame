@@ -1,11 +1,13 @@
 # huessen-frame
 configuration for self hosting images to huessen frame
 
+using raspberry pi 3b
+
 13 doesnt work.  12.12 64-bit lite
 
-`nmcli device wifi hotspot ifname wlan0 ssid picture-frame password huessen4933`
-nmcli connection add type wifi ifname wlan0 con-name testhotspot autoconnect yes ssid testhotspot 
-   50  nmcli connection modify testhotspot 802-11-wireless.mode ap 802-11-wireless.band a ipv4.method shared
-   51  nmcli connection modify testhotspot wifi-sec.psk 12345678
-   52  nmcli connection modify testhotspot wifi-sec.key-mgmt wpa-psk
-   53  nmcli connection modify testhotspot wifi-sec.psk 12345678
+sudo nmcli con add type wifi ifname wlan0 con-name hot1 autoconnect yes ssid HotspotName
+sudo nmcli con modify hot1 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
+sudo nmcli con modify hot1 wifi-sec.key-mgmt wpa-psk
+sudo nmcli con modify hot1 wifi-sec.psk Password123
+sudo nmcli con up hot1
+
