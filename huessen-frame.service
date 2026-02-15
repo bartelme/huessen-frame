@@ -1,0 +1,13 @@
+[Unit]
+Description=Huessen frame node js server
+After=network.target
+
+[Service]
+Type=simple
+User=xive
+WorkingDirectory=/home/xive/huessen-frame/
+ExecStart=/usr/bin/node /home/xive/huessen-frame/main.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
