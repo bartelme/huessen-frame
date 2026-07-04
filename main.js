@@ -5,6 +5,7 @@ const app = express()
 const port = 8080
 
 currentAction = 2
+imageToDisplay = 0
 
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -62,11 +63,12 @@ app.post('/xiaowooya/api/v1/dev/frame/status', (req, res) => {
     //action 2 force request to playlist/detail which then adds or removes an image based on the new list.
     //action 3 detail status?
     "action": currentAction,
-    "firstImageToDisplay": 0,
+    "firstImageToDisplay": imageToDisplay,
     //Apparently all add up to final time.  But not to exceed 48 hours 172000 in each entry
     "wakeUpSchedule": [172800, 172800, 172800, 0]
   });
   currentAction = 0
+  imageToDisplay = 0
 })
 
 app.post('/xiaowooya/api/v1/dev/setting/detail', (req, res) => {
@@ -110,6 +112,11 @@ app.post('/xiaowooya/api/v1/dev/playlist/detail', (req, res) => {
     "list": list
   })
 })
+
+app.get('/api/number/:myNumber', (req, res) => {
+  imageToDisplay = parseInt(req.params.myNumber);
+  res.json({ message: `Received route number: ${imageToDisplay}`, number: imageToDisplay });
+});
 
 app.use('/images/', express.static('images'))
 app.use('/static/ref/manuals/', express.static('manuals'))
